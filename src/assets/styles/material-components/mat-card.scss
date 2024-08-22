@@ -1,0 +1,29 @@
+.league-card {
+  cursor: pointer;
+  min-height: 100%;
+  transition: background 0.3s ease 0s;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: $background-hover;
+    }
+  }
+  // .league-card__content
+  &__content {
+    min-height: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  // .league-card__image
+  &__image {
+    max-width: 4rem;
+    max-height: 4rem;
+  }
+  // .league-card__title
+  &__title {
+    @media (width < 799.98px) {
+      display: none;
+    }
+  }
+}

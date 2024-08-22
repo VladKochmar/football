@@ -1,0 +1,7 @@
+<div class="leagues-list">
+  @if (leagues) {
+  @for (league of leagues; track league.league.id) {
+  <app-league-card [league]="league"></app-league-card>
+  }
+  }
+</div>

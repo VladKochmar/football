@@ -1,0 +1,10 @@
+[class*="__container"] {
+  max-width: 1312px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+body {
+  background: url("../images/background.jpg") 0 0 / cover no-repeat
+    $background-color;
+}

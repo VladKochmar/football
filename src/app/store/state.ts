@@ -1,3 +1,11 @@
-export interface FootballState {}
+import { League } from '../models/league.model';
 
-export const initialState: FootballState = {};
+export interface FootballState {
+  leagues: League[] | null;
+  error: any | null;
+}
+
+export const initialState: FootballState = {
+  leagues: null,
+  error: null,
+};

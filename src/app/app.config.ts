@@ -8,12 +8,15 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { FootballEffects } from './store/effects';
 import { FootballReducer } from './store/reducers';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
+    provideHttpClient(),
     provideStore({ footballState: FootballReducer }),
     provideEffects([FootballEffects]),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), provideAnimationsAsync(),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideAnimationsAsync(),
   ],
 };
