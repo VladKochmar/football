@@ -26,3 +26,11 @@ export const selectTopEight = createSelector(selectFootballState, (state) => {
 
   return res;
 });
+
+export const selectTopScorers = createSelector(selectFootballState, (state) => {
+  return state.topScorers;
+});
+
+export const selectTopAssists = createSelector(selectFootballState, (state) => {
+  return state.topAssists;
+});

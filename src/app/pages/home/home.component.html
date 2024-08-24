@@ -1,5 +1,23 @@
 <div class="home">
+  <div class="leagues">
+    <div class="leagues__container">
+      <app-leagues-list></app-leagues-list>
+    </div>
+  </div>
   <div class="home__container">
-    <app-leagues-list></app-leagues-list>
+    <div class="top-tables">
+      @if(topScorers) {
+      <div class="top-tables__item">
+        <div class="top-tables__title">Most Goals</div>
+        <app-top-table [players]="topScorers"></app-top-table>
+      </div>
+      }
+      @if(topAssists) {
+      <div class="top-tables__item">
+        <div class="top-tables__title">Most Assists</div>
+        <app-top-table [players]="topAssists" type="assists"></app-top-table>
+      </div>
+      }
+    </div>
   </div>
 </div>

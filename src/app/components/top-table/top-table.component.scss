@@ -1,0 +1,24 @@
+.statistics-table {
+  // .statistics-table__player
+  &__player {
+    display: flex;
+    align-items: center;
+    gap: 0 1.25rem;
+  }
+  // .statistics-table__photo
+  &__photo {
+    max-width: 3rem;
+  }
+  // .statistics-table__name
+  &__name {
+  }
+  // .statistics-table__logo
+  &__logo {
+    max-width: 3rem;
+  }
+  // .statistics-table__value
+  &__value {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+}

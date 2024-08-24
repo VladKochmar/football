@@ -16,7 +16,37 @@ export const FootballReducer = createReducer(
     return {
       ...state,
       leagues: null,
-      error: error,
+      error,
+    };
+  }),
+
+  on(FootballActions.loadTopScorersSuccess, (state, { topScorers }) => {
+    return {
+      ...state,
+      topScorers,
+    };
+  }),
+
+  on(FootballActions.loadTopScorersFailure, (state, { error }) => {
+    return {
+      ...state,
+      topScorers: null,
+      error,
+    };
+  }),
+
+  on(FootballActions.loadTopAssistsSuccess, (state, { topAssists }) => {
+    return {
+      ...state,
+      topAssists,
+    };
+  }),
+
+  on(FootballActions.loadTopAssistsFailure, (state, { error }) => {
+    return {
+      ...state,
+      topAssists: null,
+      error,
     };
   }),
 );

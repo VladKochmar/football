@@ -1,4 +1,5 @@
 import { League } from '../app/models/league.model';
+import { TopContributor } from '../app/models/top-contributor.model';
 
 export const mockLeagues: League[] = [
   {
@@ -34,6 +35,484 @@ export const mockLeagues: League[] = [
           injuries: true,
           predictions: true,
           odds: false,
+        },
+      },
+    ],
+  },
+];
+
+export const mockTopScorers: TopContributor[] = [
+  {
+    player: {
+      id: 278,
+      name: 'K. Mbappé',
+      firstname: 'Kylian',
+      lastname: 'Mbappé Lottin',
+      age: 22,
+      birth: {
+        date: '1998-12-20',
+        place: 'Paris',
+        country: 'France',
+      },
+      nationality: 'France',
+      height: '178 cm',
+      weight: '73 kg',
+      injured: false,
+      photo: 'https://media.api-sports.io/football/players/278.png',
+    },
+    statistics: [
+      {
+        team: {
+          id: 85,
+          name: 'Paris Saint Germain',
+          logo: 'https://media.api-sports.io/football/teams/85.png',
+        },
+        league: {
+          id: 61,
+          name: 'Ligue 1',
+          country: 'France',
+          logo: 'https://media.api-sports.io/football/leagues/61.png',
+          flag: 'https://media.api-sports.io/flags/fr.svg',
+          season: 2018,
+        },
+        games: {
+          appearences: 29,
+          lineups: 24,
+          minutes: 2340,
+          number: null,
+          position: 'Attacker',
+          rating: '7.871428',
+          captain: false,
+        },
+        substitutes: {
+          in: 5,
+          out: 1,
+          bench: 5,
+        },
+        shots: {
+          total: 122,
+          on: 68,
+        },
+        goals: {
+          total: 33,
+          conceded: null,
+          assists: 7,
+          saves: 0,
+        },
+        passes: {
+          total: 591,
+          key: 48,
+          accuracy: 78,
+        },
+        tackles: {
+          total: 4,
+          blocks: 0,
+          interceptions: 4,
+        },
+        duels: {
+          total: 232,
+          won: 112,
+        },
+        dribbles: {
+          attempts: 115,
+          success: 64,
+          past: null,
+        },
+        fouls: {
+          drawn: 39,
+          committed: 19,
+        },
+        cards: {
+          yellow: 5,
+          yellowred: 0,
+          red: 1,
+        },
+        penalty: {
+          won: 3,
+          commited: null,
+          scored: 1,
+          missed: 0,
+          saved: null,
+        },
+      },
+    ],
+  },
+  {
+    player: {
+      id: 278,
+      name: 'K. Mbappé',
+      firstname: 'Kylian',
+      lastname: 'Mbappé Lottin',
+      age: 22,
+      birth: {
+        date: '1998-12-20',
+        place: 'Paris',
+        country: 'France',
+      },
+      nationality: 'France',
+      height: '178 cm',
+      weight: '73 kg',
+      injured: false,
+      photo: 'https://media.api-sports.io/football/players/278.png',
+    },
+    statistics: [
+      {
+        team: {
+          id: 85,
+          name: 'Paris Saint Germain',
+          logo: 'https://media.api-sports.io/football/teams/85.png',
+        },
+        league: {
+          id: 61,
+          name: 'Ligue 1',
+          country: 'France',
+          logo: 'https://media.api-sports.io/football/leagues/61.png',
+          flag: 'https://media.api-sports.io/flags/fr.svg',
+          season: 2018,
+        },
+        games: {
+          appearences: 29,
+          lineups: 24,
+          minutes: 2340,
+          number: null,
+          position: 'Attacker',
+          rating: '7.871428',
+          captain: false,
+        },
+        substitutes: {
+          in: 5,
+          out: 1,
+          bench: 5,
+        },
+        shots: {
+          total: 122,
+          on: 68,
+        },
+        goals: {
+          total: 33,
+          conceded: null,
+          assists: 7,
+          saves: 0,
+        },
+        passes: {
+          total: 591,
+          key: 48,
+          accuracy: 78,
+        },
+        tackles: {
+          total: 4,
+          blocks: 0,
+          interceptions: 4,
+        },
+        duels: {
+          total: 232,
+          won: 112,
+        },
+        dribbles: {
+          attempts: 115,
+          success: 64,
+          past: null,
+        },
+        fouls: {
+          drawn: 39,
+          committed: 19,
+        },
+        cards: {
+          yellow: 5,
+          yellowred: 0,
+          red: 1,
+        },
+        penalty: {
+          won: 3,
+          commited: null,
+          scored: 1,
+          missed: 0,
+          saved: null,
+        },
+      },
+    ],
+  },
+  {
+    player: {
+      id: 278,
+      name: 'K. Mbappé',
+      firstname: 'Kylian',
+      lastname: 'Mbappé Lottin',
+      age: 22,
+      birth: {
+        date: '1998-12-20',
+        place: 'Paris',
+        country: 'France',
+      },
+      nationality: 'France',
+      height: '178 cm',
+      weight: '73 kg',
+      injured: false,
+      photo: 'https://media.api-sports.io/football/players/278.png',
+    },
+    statistics: [
+      {
+        team: {
+          id: 85,
+          name: 'Paris Saint Germain',
+          logo: 'https://media.api-sports.io/football/teams/85.png',
+        },
+        league: {
+          id: 61,
+          name: 'Ligue 1',
+          country: 'France',
+          logo: 'https://media.api-sports.io/football/leagues/61.png',
+          flag: 'https://media.api-sports.io/flags/fr.svg',
+          season: 2018,
+        },
+        games: {
+          appearences: 29,
+          lineups: 24,
+          minutes: 2340,
+          number: null,
+          position: 'Attacker',
+          rating: '7.871428',
+          captain: false,
+        },
+        substitutes: {
+          in: 5,
+          out: 1,
+          bench: 5,
+        },
+        shots: {
+          total: 122,
+          on: 68,
+        },
+        goals: {
+          total: 33,
+          conceded: null,
+          assists: 7,
+          saves: 0,
+        },
+        passes: {
+          total: 591,
+          key: 48,
+          accuracy: 78,
+        },
+        tackles: {
+          total: 4,
+          blocks: 0,
+          interceptions: 4,
+        },
+        duels: {
+          total: 232,
+          won: 112,
+        },
+        dribbles: {
+          attempts: 115,
+          success: 64,
+          past: null,
+        },
+        fouls: {
+          drawn: 39,
+          committed: 19,
+        },
+        cards: {
+          yellow: 5,
+          yellowred: 0,
+          red: 1,
+        },
+        penalty: {
+          won: 3,
+          commited: null,
+          scored: 1,
+          missed: 0,
+          saved: null,
+        },
+      },
+    ],
+  },
+  {
+    player: {
+      id: 278,
+      name: 'K. Mbappé',
+      firstname: 'Kylian',
+      lastname: 'Mbappé Lottin',
+      age: 22,
+      birth: {
+        date: '1998-12-20',
+        place: 'Paris',
+        country: 'France',
+      },
+      nationality: 'France',
+      height: '178 cm',
+      weight: '73 kg',
+      injured: false,
+      photo: 'https://media.api-sports.io/football/players/278.png',
+    },
+    statistics: [
+      {
+        team: {
+          id: 85,
+          name: 'Paris Saint Germain',
+          logo: 'https://media.api-sports.io/football/teams/85.png',
+        },
+        league: {
+          id: 61,
+          name: 'Ligue 1',
+          country: 'France',
+          logo: 'https://media.api-sports.io/football/leagues/61.png',
+          flag: 'https://media.api-sports.io/flags/fr.svg',
+          season: 2018,
+        },
+        games: {
+          appearences: 29,
+          lineups: 24,
+          minutes: 2340,
+          number: null,
+          position: 'Attacker',
+          rating: '7.871428',
+          captain: false,
+        },
+        substitutes: {
+          in: 5,
+          out: 1,
+          bench: 5,
+        },
+        shots: {
+          total: 122,
+          on: 68,
+        },
+        goals: {
+          total: 33,
+          conceded: null,
+          assists: 7,
+          saves: 0,
+        },
+        passes: {
+          total: 591,
+          key: 48,
+          accuracy: 78,
+        },
+        tackles: {
+          total: 4,
+          blocks: 0,
+          interceptions: 4,
+        },
+        duels: {
+          total: 232,
+          won: 112,
+        },
+        dribbles: {
+          attempts: 115,
+          success: 64,
+          past: null,
+        },
+        fouls: {
+          drawn: 39,
+          committed: 19,
+        },
+        cards: {
+          yellow: 5,
+          yellowred: 0,
+          red: 1,
+        },
+        penalty: {
+          won: 3,
+          commited: null,
+          scored: 1,
+          missed: 0,
+          saved: null,
+        },
+      },
+    ],
+  },
+  {
+    player: {
+      id: 278,
+      name: 'K. Mbappé',
+      firstname: 'Kylian',
+      lastname: 'Mbappé Lottin',
+      age: 22,
+      birth: {
+        date: '1998-12-20',
+        place: 'Paris',
+        country: 'France',
+      },
+      nationality: 'France',
+      height: '178 cm',
+      weight: '73 kg',
+      injured: false,
+      photo: 'https://media.api-sports.io/football/players/278.png',
+    },
+    statistics: [
+      {
+        team: {
+          id: 85,
+          name: 'Paris Saint Germain',
+          logo: 'https://media.api-sports.io/football/teams/85.png',
+        },
+        league: {
+          id: 61,
+          name: 'Ligue 1',
+          country: 'France',
+          logo: 'https://media.api-sports.io/football/leagues/61.png',
+          flag: 'https://media.api-sports.io/flags/fr.svg',
+          season: 2018,
+        },
+        games: {
+          appearences: 29,
+          lineups: 24,
+          minutes: 2340,
+          number: null,
+          position: 'Attacker',
+          rating: '7.871428',
+          captain: false,
+        },
+        substitutes: {
+          in: 5,
+          out: 1,
+          bench: 5,
+        },
+        shots: {
+          total: 122,
+          on: 68,
+        },
+        goals: {
+          total: 33,
+          conceded: null,
+          assists: 7,
+          saves: 0,
+        },
+        passes: {
+          total: 591,
+          key: 48,
+          accuracy: 78,
+        },
+        tackles: {
+          total: 4,
+          blocks: 0,
+          interceptions: 4,
+        },
+        duels: {
+          total: 232,
+          won: 112,
+        },
+        dribbles: {
+          attempts: 115,
+          success: 64,
+          past: null,
+        },
+        fouls: {
+          drawn: 39,
+          committed: 19,
+        },
+        cards: {
+          yellow: 5,
+          yellowred: 0,
+          red: 1,
+        },
+        penalty: {
+          won: 3,
+          commited: null,
+          scored: 1,
+          missed: 0,
+          saved: null,
         },
       },
     ],

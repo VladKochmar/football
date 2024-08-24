@@ -3,12 +3,14 @@ import { FootballService } from '../services/football/football.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as FootballActions from './actions';
 import { catchError, map, of, switchMap } from 'rxjs';
+import { HumansService } from '../services/humans/humans.service';
 
 @Injectable()
 export class FootballEffects {
   constructor(
     private actions$: Actions,
     private footballService: FootballService,
+    private humansService: HumansService,
   ) {}
 
   loadLeagues$ = createEffect(() =>
@@ -23,6 +25,42 @@ export class FootballEffects {
           }),
           catchError((error) =>
             of(FootballActions.loadLeaguesFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
+
+  loadTopScorers$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.loadTopScorers),
+      switchMap(({ leagueId, season }) => {
+        return this.humansService.loadTopScorers(leagueId, season).pipe(
+          map((topScorers) => {
+            return FootballActions.loadTopScorersSuccess({
+              topScorers: topScorers.response,
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadTopScorersFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
+
+  loadTopAssists$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.loadTopAssists),
+      switchMap(({ leagueId, season }) => {
+        return this.humansService.loadTopAssists(leagueId, season).pipe(
+          map((topAssists) => {
+            return FootballActions.loadTopAssistsSuccess({
+              topAssists: topAssists.response,
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadTopAssistsFailure({ error })),
           ),
         );
       }),
