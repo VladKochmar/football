@@ -66,4 +66,22 @@ export class FootballEffects {
       }),
     ),
   );
+
+  loadStandings$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.loadStandings),
+      switchMap(({ leagueId, season }) => {
+        return this.footballService.loadStandings(leagueId, season).pipe(
+          map((standings) => {
+            return FootballActions.loadStandingsSuccess({
+              leagueStandings: standings.response,
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadStandingsFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
 }

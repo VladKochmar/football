@@ -1,0 +1,41 @@
+.standings {
+  @media (width < 767.98px) {
+    display: block;
+    overflow-x: auto;
+  }
+  th.mat-header-cell.sticky,
+  td.mat-cell.sticky {
+    left: 0;
+    box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.4);
+  }
+  // .standings__club
+  &__club {
+    display: flex;
+    align-items: center;
+    gap: 0 0.75rem;
+  }
+  // .standings__rank
+  &__rank {
+    font-weight: 700;
+  }
+  // .standings__image
+  &__image {
+    max-width: 1.5rem;
+  }
+  // .standings__name
+  &__name {
+    @media (width < 424.98px) {
+      font-size: 0.875rem;
+    }
+  }
+  // .standings__points
+  &__points {
+    font-weight: 700;
+  }
+  // .standings__results
+  &__results {
+    display: flex;
+    gap: 0 0.5rem;
+    align-items: center;
+  }
+}

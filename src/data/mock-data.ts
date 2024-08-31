@@ -1,3 +1,4 @@
+import { LeagueStandings } from '../app/models/league-standings.model';
 import { League } from '../app/models/league.model';
 import { TopContributor } from '../app/models/top-contributor.model';
 
@@ -516,5 +517,67 @@ export const mockTopScorers: TopContributor[] = [
         },
       },
     ],
+  },
+];
+
+export const mockStandings: { league: LeagueStandings }[] = [
+  {
+    league: {
+      id: 39,
+      name: 'Premier League',
+      country: 'England',
+      logo: 'https://media.api-sports.io/football/leagues/2.png',
+      flag: 'https://media.api-sports.io/flags/gb.svg',
+      season: 2019,
+      standings: [
+        [
+          {
+            rank: 1,
+            team: {
+              id: 40,
+              name: 'Liverpool',
+              logo: 'https://media.api-sports.io/football/teams/40.png',
+            },
+            points: 70,
+            goalsDiff: 41,
+            group: 'Premier League',
+            form: 'WWWWW',
+            status: 'same',
+            description: 'Promotion - Champions League (Group Stage)',
+            all: {
+              played: 24,
+              win: 23,
+              draw: 1,
+              lose: 0,
+              goals: {
+                for: 25,
+                against: 6,
+              },
+            },
+            home: {
+              played: 12,
+              win: 12,
+              draw: 0,
+              lose: 0,
+              goals: {
+                for: 25,
+                against: 6,
+              },
+            },
+            away: {
+              played: 12,
+              win: 11,
+              draw: 1,
+              lose: 0,
+              goals: {
+                for: 25,
+                against: 6,
+              },
+            },
+            update: '2020-01-29T00:00:00+00:00',
+          },
+        ],
+      ],
+    },
   },
 ];

@@ -49,4 +49,19 @@ export const FootballReducer = createReducer(
       error,
     };
   }),
+
+  on(FootballActions.loadStandingsSuccess, (state, { leagueStandings }) => {
+    return {
+      ...state,
+      leagueStandings,
+    };
+  }),
+
+  on(FootballActions.loadStandingsFailure, (state, { error }) => {
+    return {
+      ...state,
+      leagueStandings: null,
+      error,
+    };
+  }),
 );

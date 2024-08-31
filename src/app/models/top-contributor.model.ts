@@ -1,5 +1,6 @@
 import { Human } from './human.model';
 import { ApiResponse } from './response.model';
+import { Team } from './team.model';
 
 export interface TopContributor {
   player: Human;
@@ -24,12 +25,6 @@ interface PlayerStatistics {
   fouls: Fouls;
   cards: Cards;
   penalty: Penalty;
-}
-
-interface Team {
-  id: number;
-  name: string;
-  logo: string;
 }
 
 interface StatisticsLeague {

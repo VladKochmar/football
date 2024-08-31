@@ -17,7 +17,7 @@ export const selectLeaguesLoaded = createSelector(
 
 export const selectTopEight = createSelector(selectFootballState, (state) => {
   let res = null;
-  const LEAGUES_IDS = [39, 140, 135, 78, 61, 2, 3, 848];
+  const LEAGUES_IDS = [39, 140, 135, 78, 61, 94, 333, 106];
 
   if (state.leagues)
     res = state.leagues.filter((league) =>
@@ -34,3 +34,17 @@ export const selectTopScorers = createSelector(selectFootballState, (state) => {
 export const selectTopAssists = createSelector(selectFootballState, (state) => {
   return state.topAssists;
 });
+
+export const selectLeagueStandings = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.leagueStandings;
+  },
+);
+
+export const selectStandingsLoaded = createSelector(
+  selectFootballState,
+  (state) => {
+    return !!state.leagueStandings;
+  },
+);

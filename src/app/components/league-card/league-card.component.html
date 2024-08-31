@@ -1,8 +1,8 @@
-<div class="card-wrapper">
+<a [routerLink]="['/league', league.league.id, 2024]" class="card-wrapper">
   <mat-card appearance="outlined" class="league-card">
     <mat-card-content class="league-card__content">
       <img [src]="league.league.logo" [alt]="league.league.name" class="league-card__image">
       <span class="league-card__title">{{ league.league.name }}</span>
     </mat-card-content>
   </mat-card>
-</div>
+</a>

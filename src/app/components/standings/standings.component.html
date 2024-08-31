@@ -1,0 +1,63 @@
+<table mat-table [dataSource]="standings" class="standings">
+  <ng-container matColumnDef="Club" sticky>
+    <th mat-header-cell *matHeaderCellDef> Club </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="standings__club">
+        <span class="standings__rank">{{ element.rank }}</span>
+        <img [src]="element.team.logo" [alt]="element.team.name" class="standings__image">
+        <span class="standings__name">{{ element.team.name }}</span>
+      </div>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="P">
+    <th mat-header-cell *matHeaderCellDef>P</th>
+    <td mat-cell *matCellDef="let element">{{element.all.played}}</td>
+  </ng-container>
+  <ng-container matColumnDef="W">
+    <th mat-header-cell *matHeaderCellDef>W</th>
+    <td mat-cell *matCellDef="let element">{{element.all.win}}</td>
+  </ng-container>
+  <ng-container matColumnDef="D">
+    <th mat-header-cell *matHeaderCellDef>P</th>
+    <td mat-cell *matCellDef="let element">{{element.all.draw}}</td>
+  </ng-container>
+  <ng-container matColumnDef="L">
+    <th mat-header-cell *matHeaderCellDef>L</th>
+    <td mat-cell *matCellDef="let element">{{element.all.lose}}</td>
+  </ng-container>
+  <ng-container matColumnDef="GS">
+    <th mat-header-cell *matHeaderCellDef>GS</th>
+    <td mat-cell *matCellDef="let element">{{element.all.goals.for}}</td>
+  </ng-container>
+  <ng-container matColumnDef="GC">
+    <th mat-header-cell *matHeaderCellDef>GC</th>
+    <td mat-cell *matCellDef="let element">{{element.all.goals.against}}</td>
+  </ng-container>
+  <ng-container matColumnDef="GD">
+    <th mat-header-cell *matHeaderCellDef>GD</th>
+    <td mat-cell *matCellDef="let element">{{element.goalsDiff}}</td>
+  </ng-container>
+  <ng-container matColumnDef="Points">
+    <th mat-header-cell *matHeaderCellDef>Points</th>
+    <td mat-cell *matCellDef="let element" class="standings__points">{{element.points}}</td>
+  </ng-container>
+  <ng-container matColumnDef="Last">
+    <th mat-header-cell *matHeaderCellDef>Last 5</th>
+    <td mat-cell *matCellDef="let element">
+      <div class="standings__results">
+        @for (item of element.form; track $index) {
+        @if (item === 'W') {
+        <span class="win"><mat-icon aria-hidden="false" aria-label="Check icon" fontIcon="check"></mat-icon></span>
+        } @else if (item === 'D') {
+        <span class="draw">-</span>
+        } @else {
+        <span class="lose"><mat-icon aria-hidden="false" aria-label="Clear icon" fontIcon="clear"></mat-icon></span>
+        }
+        }
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

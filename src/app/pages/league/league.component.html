@@ -1,0 +1,11 @@
+<div class="page">
+  <div class="page__container">
+    @if (standings) {
+    <div class="league-header">
+      <img [src]="standings[0].league.logo" [alt]="standings[0].league.name" class="league-header__logo">
+      <h1 class="title">{{ standings[0].league.name }} - {{ standings[0].league.season }}</h1>
+    </div>
+    <app-standings [standings]="standings[0].league.standings[0]"></app-standings>
+    }
+  </div>
+</div>

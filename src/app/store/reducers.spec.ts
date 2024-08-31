@@ -1,7 +1,13 @@
-import { mockLeagues, mockTopScorers } from '../../data/mock-data';
+import {
+  mockLeagues,
+  mockStandings,
+  mockTopScorers,
+} from '../../data/mock-data';
 import {
   loadLeaguesFailure,
   loadLeaguesSuccess,
+  loadStandingsFailure,
+  loadStandingsSuccess,
   loadTopAssistsFailure,
   loadTopAssistsSuccess,
   loadTopScorersFailure,
@@ -102,6 +108,37 @@ describe('FootballReducer', () => {
     const state = FootballReducer(
       initialState,
       loadTopScorersFailure({ error }),
+    );
+    expect(state).toEqual(expectedState);
+  });
+
+  it('should handle loadStandingsSuccess', () => {
+    const leagueStandings = mockStandings;
+
+    const expectedState = {
+      ...initialState,
+      leagueStandings,
+    };
+
+    const state = FootballReducer(
+      initialState,
+      loadStandingsSuccess({ leagueStandings }),
+    );
+    expect(state).toEqual(expectedState);
+  });
+
+  it('should handle loadStandingsFailure', () => {
+    const error = 'Some Error';
+
+    const expectedState = {
+      ...initialState,
+      leagueStandings: null,
+      error,
+    };
+
+    const state = FootballReducer(
+      initialState,
+      loadStandingsFailure({ error }),
     );
     expect(state).toEqual(expectedState);
   });
