@@ -13,6 +13,7 @@ export class FootballEffects {
     private humansService: HumansService,
   ) {}
 
+  // Leagues
   loadLeagues$ = createEffect(() =>
     this.actions$.pipe(
       ofType(FootballActions.loadLeagues),
@@ -31,6 +32,25 @@ export class FootballEffects {
     ),
   );
 
+  loadLeagueById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.loadLeagueById),
+      switchMap(({ leagueId }) => {
+        return this.footballService.loadLeagues(leagueId).pipe(
+          map((league) => {
+            return FootballActions.loadLeagueByIdSuccess({
+              currentLeague: league.response[0],
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadLeagueByIdFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
+
+  // Top Contributions
   loadTopScorers$ = createEffect(() =>
     this.actions$.pipe(
       ofType(FootballActions.loadTopScorers),
@@ -67,6 +87,7 @@ export class FootballEffects {
     ),
   );
 
+  // Standings
   loadStandings$ = createEffect(() =>
     this.actions$.pipe(
       ofType(FootballActions.loadStandings),
@@ -79,6 +100,25 @@ export class FootballEffects {
           }),
           catchError((error) =>
             of(FootballActions.loadStandingsFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
+
+  // Fixtures
+  loadLeagueFixtures$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.laodLeagueFixtures),
+      switchMap(({ leagueId, season }) => {
+        return this.footballService.loadLeagueFixtures(leagueId, season).pipe(
+          map((fixtures) => {
+            return FootballActions.laodLeagueFixturesSuccess({
+              leagueFixtures: fixtures.response,
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadLeagueFixturesFailure({ error })),
           ),
         );
       }),

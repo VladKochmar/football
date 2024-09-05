@@ -1,0 +1,50 @@
+@import "../../../assets/styles/variables";
+
+.fixture-card {
+  display: flex;
+  // .fixture-card__clubs
+  &__clubs {
+    flex: 0 1 15.625rem;
+    padding-right: 0.75rem;
+  }
+  // .fixture-card__club
+  &__club {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    &.loser {
+      color: $background-hover;
+    }
+    padding: 0.5rem 0 0.5rem 0.5rem;
+  }
+  // .fixture-card__logo
+  &__logo {
+    max-width: 2.25rem;
+    max-height: 2.25rem;
+  }
+  // .fixture-card__name
+  &__name {
+    flex: 1 1 auto;
+  }
+  // .fixture-card__goals
+  &__goals {
+    font-weight: 700;
+  }
+  // .fixture-card__info
+  &__info {
+    display: grid;
+    align-content: center;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0 12px 0 1rem;
+    border-left: 1px solid $background-hover;
+  }
+  // .fixture-card__status
+  &__status {
+    font-weight: 700;
+  }
+  // .fixture-card__date
+  &__date {
+    color: $background-hover;
+  }
+}

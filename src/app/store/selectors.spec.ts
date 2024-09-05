@@ -1,9 +1,11 @@
 import {
+  mockFixture,
   mockLeagues,
   mockStandings,
   mockTopScorers,
 } from '../../data/mock-data';
 import {
+  selectLeagueFixtures,
   selectLeagues,
   selectLeagueStandings,
   selectTopAssists,
@@ -15,8 +17,14 @@ describe('Selectors', () => {
   const initialState: FootballState = {
     leagues: mockLeagues,
     topScorers: mockTopScorers,
+    loadingTopScorers: true,
     topAssists: mockTopScorers,
+    loadingTopAssists: true,
     leagueStandings: mockStandings,
+    loadingStandings: true,
+    leagueFixtures: [mockFixture],
+    loadingFixtures: true,
+    currentLeague: null,
     error: null,
   };
 
@@ -39,6 +47,12 @@ describe('Selectors', () => {
   it('should select leagueStandings from the state', () => {
     expect(selectLeagueStandings.projector(initialState)).toEqual(
       initialState.leagueStandings,
+    );
+  });
+
+  it('should select leagueFixtures from the state', () => {
+    expect(selectLeagueFixtures.projector(initialState)).toEqual(
+      initialState.leagueFixtures,
     );
   });
 });

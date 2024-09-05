@@ -1,0 +1,7 @@
+<h2>Standings</h2>
+@if (selectedLoading$ | async) {
+<app-skeleton-table></app-skeleton-table>
+}
+@if (standings) {
+<app-standings [standings]="standings[0].league.standings[0]"></app-standings>
+}

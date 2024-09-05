@@ -6,18 +6,24 @@
   </div>
   <div class="page__container">
     <div class="top-tables">
-      @if(topScorers) {
       <div class="top-tables__item">
         <div class="top-tables__title">Most Goals</div>
+        @if (selectedLoadingScorers$ | async) {
+        <app-skeleton-table></app-skeleton-table>
+        }
+        @if (topScorers) {
         <app-top-table [players]="topScorers"></app-top-table>
+        }
       </div>
-      }
-      @if(topAssists) {
       <div class="top-tables__item">
         <div class="top-tables__title">Most Assists</div>
+        @if (selectedLoadingAssists$ | async) {
+        <app-skeleton-table></app-skeleton-table>
+        }
+        @if (topAssists) {
         <app-top-table [players]="topAssists" type="assists"></app-top-table>
+        }
       </div>
-      }
     </div>
   </div>
 </div>

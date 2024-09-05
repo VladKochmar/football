@@ -5,6 +5,7 @@ import * as FootballActions from './actions';
 export const FootballReducer = createReducer(
   initialState,
 
+  // Leagues
   on(FootballActions.loadLeaguesSuccess, (state, { leagues }) => {
     return {
       ...state,
@@ -20,10 +21,34 @@ export const FootballReducer = createReducer(
     };
   }),
 
+  on(FootballActions.loadLeagueByIdSuccess, (state, { currentLeague }) => {
+    return {
+      ...state,
+      currentLeague,
+    };
+  }),
+
+  on(FootballActions.loadLeagueByIdFailure, (state, { error }) => {
+    return {
+      ...state,
+      currentLeague: null,
+      error,
+    };
+  }),
+
+  // Top Contributions
+  on(FootballActions.loadTopScorers, (state) => {
+    return {
+      ...state,
+      loadingTopScorers: true,
+    };
+  }),
+
   on(FootballActions.loadTopScorersSuccess, (state, { topScorers }) => {
     return {
       ...state,
       topScorers,
+      loadingTopScorers: false,
     };
   }),
 
@@ -31,7 +56,15 @@ export const FootballReducer = createReducer(
     return {
       ...state,
       topScorers: null,
+      loadingTopScorers: false,
       error,
+    };
+  }),
+
+  on(FootballActions.loadTopAssists, (state) => {
+    return {
+      ...state,
+      loadingTopAssists: true,
     };
   }),
 
@@ -39,6 +72,7 @@ export const FootballReducer = createReducer(
     return {
       ...state,
       topAssists,
+      loadingTopAssists: false,
     };
   }),
 
@@ -46,7 +80,16 @@ export const FootballReducer = createReducer(
     return {
       ...state,
       topAssists: null,
+      loadingTopAssists: false,
       error,
+    };
+  }),
+
+  // Standings
+  on(FootballActions.loadStandings, (state) => {
+    return {
+      ...state,
+      loadingStandings: true,
     };
   }),
 
@@ -54,6 +97,7 @@ export const FootballReducer = createReducer(
     return {
       ...state,
       leagueStandings,
+      loadingStandings: false,
     };
   }),
 
@@ -61,6 +105,32 @@ export const FootballReducer = createReducer(
     return {
       ...state,
       leagueStandings: null,
+      loadingStandings: false,
+      error,
+    };
+  }),
+
+  // Fixtures
+  on(FootballActions.laodLeagueFixtures, (state) => {
+    return {
+      ...state,
+      loadingFixtures: true,
+    };
+  }),
+
+  on(FootballActions.laodLeagueFixturesSuccess, (state, { leagueFixtures }) => {
+    return {
+      ...state,
+      leagueFixtures,
+      loadingFixtures: false,
+    };
+  }),
+
+  on(FootballActions.loadLeagueFixturesFailure, (state, { error }) => {
+    return {
+      ...state,
+      leagueFixtures: null,
+      loadingFixtures: false,
       error,
     };
   }),

@@ -4,6 +4,7 @@ import { FootballState } from './state';
 export const selectFootballState =
   createFeatureSelector<FootballState>('footballState');
 
+// Leagues
 export const selectLeagues = createSelector(selectFootballState, (state) => {
   return state.leagues;
 });
@@ -12,6 +13,17 @@ export const selectLeaguesLoaded = createSelector(
   selectFootballState,
   (state) => {
     return !!state.leagues;
+  },
+);
+
+export const selectLeagueById = createSelector(selectFootballState, (state) => {
+  return state.currentLeague;
+});
+
+export const selectLeagueByIdLoaded = createSelector(
+  selectFootballState,
+  (state) => {
+    return !!state.currentLeague;
   },
 );
 
@@ -27,14 +39,30 @@ export const selectTopEight = createSelector(selectFootballState, (state) => {
   return res;
 });
 
+// Top Contributions
 export const selectTopScorers = createSelector(selectFootballState, (state) => {
   return state.topScorers;
 });
+
+export const selectLoadingTopScorers = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.loadingTopScorers;
+  },
+);
 
 export const selectTopAssists = createSelector(selectFootballState, (state) => {
   return state.topAssists;
 });
 
+export const selectLoadingTopAssists = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.loadingTopAssists;
+  },
+);
+
+// Standings
 export const selectLeagueStandings = createSelector(
   selectFootballState,
   (state) => {
@@ -42,9 +70,24 @@ export const selectLeagueStandings = createSelector(
   },
 );
 
-export const selectStandingsLoaded = createSelector(
+export const selectLoadingStandings = createSelector(
   selectFootballState,
   (state) => {
-    return !!state.leagueStandings;
+    return state.loadingStandings;
+  },
+);
+
+// Fixtures
+export const selectLeagueFixtures = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.leagueFixtures;
+  },
+);
+
+export const selectLoadingFixtures = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.loadingFixtures;
   },
 );

@@ -2,7 +2,9 @@ import { createAction, props } from '@ngrx/store';
 import { League } from '../models/league.model';
 import { TopContributor } from '../models/top-contributor.model';
 import { LeagueStandings } from '../models/league-standings.model';
+import { Fixtures } from '../models/fixtures.model';
 
+// Leagues
 export const loadLeagues = createAction('[Leagues] Load Leagues');
 
 export const loadLeaguesSuccess = createAction(
@@ -15,6 +17,22 @@ export const loadLeaguesFailure = createAction(
   props<{ error: any }>(),
 );
 
+export const loadLeagueById = createAction(
+  '[Leagues] Load League By Id',
+  props<{ leagueId: string | number }>(),
+);
+
+export const loadLeagueByIdSuccess = createAction(
+  '[Leagues] Load League By Id Success',
+  props<{ currentLeague: League | null }>(),
+);
+
+export const loadLeagueByIdFailure = createAction(
+  '[Leagues] Load League By Id Failure',
+  props<{ error: any }>(),
+);
+
+// Top Contributions
 export const loadTopScorers = createAction(
   '[Top Contributions] Load Top Scorers',
   props<{ season: number | string; leagueId: number | string }>(),
@@ -45,6 +63,7 @@ export const loadTopAssistsFailure = createAction(
   props<{ error: any }>(),
 );
 
+// Standings
 export const loadStandings = createAction(
   '[Standings] Load League Stangings',
   props<{ leagueId: number | string; season: string | number }>(),
@@ -57,5 +76,21 @@ export const loadStandingsSuccess = createAction(
 
 export const loadStandingsFailure = createAction(
   '[Standings] Load League Stangings Failure',
+  props<{ error: any }>(),
+);
+
+// Fixtures
+export const laodLeagueFixtures = createAction(
+  '[Fixtures] Load League Fixtures',
+  props<{ leagueId: number | string; season: number | string }>(),
+);
+
+export const laodLeagueFixturesSuccess = createAction(
+  '[Fixtures] Load League Fixtures Success',
+  props<{ leagueFixtures: Fixtures[] | null }>(),
+);
+
+export const loadLeagueFixturesFailure = createAction(
+  '[Fixtures] Load League Fixtures Failure',
   props<{ error: any }>(),
 );

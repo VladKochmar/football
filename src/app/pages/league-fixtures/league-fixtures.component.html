@@ -1,0 +1,14 @@
+<h2>Fixtures</h2>
+
+<div class="fixtures-list">
+  @if(selectedLoading$ | async) {
+  @for (item of skeletonFixtures; track $index) {
+  <app-skeleton-fixture-item></app-skeleton-fixture-item>
+  }
+  }
+  @if (fixtures) {
+  @for (fixture of fixtures; track fixture.fixture.id) {
+  <app-fixture-item [fixture]="fixture"></app-fixture-item>
+  }
+  }
+</div>

@@ -28,12 +28,12 @@ interface PlayerStatistics {
 }
 
 interface StatisticsLeague {
-  id: number;
+  id: number | string;
   name: string;
   country: string;
   logo: string;
   flag: string;
-  season: number;
+  season: number | string;
 }
 
 interface Games {

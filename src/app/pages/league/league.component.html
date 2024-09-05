@@ -1,11 +1,19 @@
 <div class="page">
   <div class="page__container">
-    @if (standings) {
+    <a [routerLink]="['/']">Home</a>
+    @if (currentLeague) {
     <div class="league-header">
-      <img [src]="standings[0].league.logo" [alt]="standings[0].league.name" class="league-header__logo">
-      <h1 class="title">{{ standings[0].league.name }} - {{ standings[0].league.season }}</h1>
+      <img [src]="currentLeague.league.logo" [alt]="currentLeague.league.name" class="league-header__logo">
+      <h1 class="title">{{ currentLeague.league.name }}</h1>
     </div>
-    <app-standings [standings]="standings[0].league.standings[0]"></app-standings>
     }
+    <nav class="league-navigation">
+      <ul class="league-navigation__list">
+        <li class="league-navigation__item"><a [routerLink]="['fixtures']" class="league-navigation__link">Fixtures</a></li>
+        <li class="league-navigation__item"><a [routerLink]="['standings']" class="league-navigation__link">Standings</a></li>
+        <li class="league-navigation__item"><a [routerLink]="['statistics']" class="league-navigation__link">Statistics</a></li>
+      </ul>
+    </nav>
+    <router-outlet></router-outlet>
   </div>
 </div>

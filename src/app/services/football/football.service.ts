@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { LeagueResponse } from '../../models/league.model';
 import { LeagueStandingsResponse } from '../../models/league-standings.model';
+import { FixturesApi } from '../../models/fixtures.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +17,11 @@ export class FootballService {
 
   constructor(private http: HttpClient) {}
 
-  loadLeagues(): Observable<LeagueResponse> {
-    return this.http.get<LeagueResponse>(`${environment.API_URL}/leagues`, {
+  loadLeagues(leagueId?: number | string): Observable<LeagueResponse> {
+    const url = leagueId
+      ? `${environment.API_URL}/leagues?id=${leagueId}`
+      : `${environment.API_URL}/leagues`;
+    return this.http.get<LeagueResponse>(url, {
       headers: this.headers,
     });
   }
@@ -28,6 +32,16 @@ export class FootballService {
   ): Observable<LeagueStandingsResponse> {
     return this.http.get<LeagueStandingsResponse>(
       `${environment.API_URL}/standings?league=${leagueId}&season=${season}`,
+      { headers: this.headers },
+    );
+  }
+
+  loadLeagueFixtures(
+    leagueId: string | number,
+    season: string | number,
+  ): Observable<FixturesApi> {
+    return this.http.get<FixturesApi>(
+      `${environment.API_URL}/fixtures?league=${leagueId}&season=${season}`,
       { headers: this.headers },
     );
   }
