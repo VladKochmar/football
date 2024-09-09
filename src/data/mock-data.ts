@@ -2,6 +2,8 @@ import { Fixtures } from '../app/models/fixtures.model';
 import { LeagueStandings } from '../app/models/league-standings.model';
 import { League } from '../app/models/league.model';
 import { TopContributor } from '../app/models/top-contributor.model';
+import { TransferInfo } from '../app/models/transfer.model';
+import { Trophy } from '../app/models/trophy.model';
 
 export const mockLeagues: League[] = [
   {
@@ -651,3 +653,94 @@ export const mockFixture: Fixtures = {
     },
   },
 };
+
+export const mockTrophies: Trophy[] = [
+  {
+    league: 'Sudamericano U20',
+    country: 'South-America',
+    season: 'Peru 2011',
+    place: 'Winner',
+  },
+  {
+    league: 'Trophée des Champions',
+    country: 'France',
+    season: '2019/2020',
+    place: 'Winner',
+  },
+  {
+    league: 'Copa America',
+    country: 'South-America',
+    season: '2019 Brazil',
+    place: 'Winner',
+  },
+  {
+    league: 'Ligue 1',
+    country: 'France',
+    season: '2018/2019',
+    place: 'Winner',
+  },
+  {
+    league: 'Coupe de France',
+    country: 'France',
+    season: '2018/2019',
+    place: '2nd Place',
+  },
+  {
+    league: 'Trophée des Champions',
+    country: 'France',
+    season: '2018/2019',
+    place: 'Winner',
+  },
+  {
+    league: 'Ligue 1',
+    country: 'France',
+    season: '2017/2018',
+    place: 'Winner',
+  },
+  {
+    league: 'Coupe de France',
+    country: 'France',
+    season: '2017/2018',
+    place: 'Winner',
+  },
+  {
+    league: 'Coupe de la Ligue',
+    country: 'France',
+    season: '2017/2018',
+    place: 'Winner',
+  },
+  {
+    league: 'La Liga',
+    country: 'Spain',
+    season: '2016/2017',
+    place: '2nd Place',
+  },
+];
+
+export const mockTransfers: TransferInfo[] = [
+  {
+    player: {
+      id: 35845,
+      name: 'Hernán Darío Burbano',
+    },
+    update: '2020-02-06T00:08:15+00:00',
+    transfers: [
+      {
+        date: '2019-07-15',
+        type: 'Free',
+        teams: {
+          in: {
+            id: 2283,
+            name: 'Atlas',
+            logo: 'https://media.api-sports.io/football/teams/2283.png',
+          },
+          out: {
+            id: 2283,
+            name: 'Atlas',
+            logo: 'https://media.api-sports.io/football/teams/2283.png',
+          },
+        },
+      },
+    ],
+  },
+];

@@ -1,0 +1,41 @@
+.skeleton-transfer {
+  display: inline-flex;
+  gap: 0 1.5rem;
+  padding: 0.625rem;
+  // .skeleton-transfer__clubs
+  &__clubs {
+    flex: 0 0 3.625rem;
+    position: relative;
+  }
+  // .skeleton-transfer__out
+  &__out {
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    z-index: 3;
+    opacity: 0.5;
+  }
+  // .skeleton-transfer__in
+  &__in {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    z-index: 4;
+    width: 2.625rem;
+    height: 2.625rem;
+  }
+  // .skeleton-transfer__details
+  &__details {
+    flex: 0 1 120px;
+    display: grid;
+    gap: 0.5rem 0;
+  }
+  // .skeleton-transfer__price
+  &__price {
+    height: 1.75rem;
+  }
+  // .skeleton-transfer__date
+  &__date {
+    height: 0.875rem;
+  }
+}

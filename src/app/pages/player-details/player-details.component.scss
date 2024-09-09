@@ -1,0 +1,23 @@
+.player-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  &:not(:last-child) {
+    padding-bottom: 1.5rem;
+  }
+  @media (width < 767.98px) {
+    flex-direction: column;
+    align-items: baseline;
+  }
+}
+.transfers-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(11.875rem, 14.375rem));
+}
+.page__trophies {
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}

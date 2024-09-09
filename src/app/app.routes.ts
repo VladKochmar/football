@@ -4,6 +4,7 @@ import { contributionsResolver } from './resolvers/contributions.resolver';
 import { standingsResolver } from './resolvers/standings.resolver';
 import { currentLeagueResolver } from './resolvers/current-league.resolver';
 import { leagueFixturesResolver } from './resolvers/league-fixtures.resolver';
+import { playerDetailsResolver } from './resolvers/player-details.resolver';
 
 export const routes: Routes = [
   {
@@ -46,5 +47,13 @@ export const routes: Routes = [
         resolve: { fixtures: leagueFixturesResolver },
       },
     ],
+  },
+  {
+    path: 'player/:playerId',
+    loadComponent: () =>
+      import('./pages/player-details/player-details.component').then(
+        (m) => m.PlayerDetailsComponent,
+      ),
+    resolve: { player: playerDetailsResolver },
   },
 ];

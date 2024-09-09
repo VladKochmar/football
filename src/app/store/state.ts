@@ -2,6 +2,8 @@ import { Fixtures } from '../models/fixtures.model';
 import { LeagueStandings } from '../models/league-standings.model';
 import { League } from '../models/league.model';
 import { TopContributor } from '../models/top-contributor.model';
+import { TransferInfo } from '../models/transfer.model';
+import { Trophy } from '../models/trophy.model';
 
 export interface FootballState {
   leagues: League[] | null;
@@ -14,6 +16,12 @@ export interface FootballState {
   currentLeague: League | null;
   leagueFixtures: Fixtures[] | null;
   loadingFixtures: boolean;
+  currentPlayer: TopContributor | null;
+  loadingPlayer: boolean;
+  trophies: Trophy[] | null;
+  loadingTrophies: boolean;
+  transfers: TransferInfo[] | null;
+  loadingTransfers: boolean;
   error: any | null;
 }
 
@@ -28,5 +36,11 @@ export const initialState: FootballState = {
   currentLeague: null,
   leagueFixtures: null,
   loadingFixtures: false,
+  currentPlayer: null,
+  loadingPlayer: false,
+  trophies: null,
+  loadingTrophies: false,
+  transfers: null,
+  loadingTransfers: false,
   error: null,
 };

@@ -124,4 +124,59 @@ export class FootballEffects {
       }),
     ),
   );
+
+  // Players
+  loadPlayerById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.loadPlayerById),
+      switchMap(({ playerId }) => {
+        return this.humansService.loadPlayerById(playerId).pipe(
+          map((player) => {
+            return FootballActions.loadPlayerByIdSuccess({
+              currentPlayer: player.response[0],
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadPlayerByIdFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
+
+  loadTrophiesByHuman$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.loadTrophiesByHuman),
+      switchMap(({ id, humanType }) => {
+        return this.humansService.loadTrophiesByHuman(id, humanType).pipe(
+          map((trophies) => {
+            return FootballActions.loadTrophiesByHumanSuccess({
+              trophies: trophies.response,
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadTrophiesByHumanFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
+
+  loadPlayerTransfersHistory$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.loadPlayerTransfersHistory),
+      switchMap(({ id }) => {
+        return this.humansService.loadPlayerTransfersHistory(id).pipe(
+          map((transfers) => {
+            return FootballActions.loadPlayerTransfersHistorySuccess({
+              transfers: transfers.response,
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadPlayerTransfersHistoryFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
 }

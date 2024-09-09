@@ -1,0 +1,50 @@
+.transfer-card {
+  display: inline-flex;
+  gap: 0 1.5rem;
+  padding: 0.625rem;
+  // .transfer-card__clubs
+  &__clubs {
+    flex: 0 0 3.625rem;
+    position: relative;
+  }
+  // .transfer-card__out
+  &__out {
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    z-index: 3;
+    img {
+      opacity: 0.5;
+      width: 2.25rem;
+      height: 2.25rem;
+      object-fit: contain;
+    }
+  }
+  // .transfer-card__in
+  &__in {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    z-index: 4;
+    img {
+      width: 2.625rem;
+      height: 2.625rem;
+      object-fit: contain;
+    }
+  }
+  // .transfer-card__details
+  &__details {
+    display: grid;
+  }
+  // .transfer-card__price
+  &__price {
+    font-size: 1.75rem;
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+  // .transfer-card__date
+  &__date {
+    font-size: 0.875rem;
+  }
+}

@@ -134,4 +134,80 @@ export const FootballReducer = createReducer(
       error,
     };
   }),
+
+  // Player
+  on(FootballActions.loadPlayerById, (state) => {
+    return {
+      ...state,
+      loadingPlayer: true,
+    };
+  }),
+
+  on(FootballActions.loadPlayerByIdSuccess, (state, { currentPlayer }) => {
+    return {
+      ...state,
+      currentPlayer,
+      loadingPlayer: false,
+    };
+  }),
+
+  on(FootballActions.loadPlayerByIdFailure, (state, { error }) => {
+    return {
+      ...state,
+      currentPlayer: null,
+      loadingPlayer: false,
+      error,
+    };
+  }),
+
+  on(FootballActions.loadTrophiesByHuman, (state) => {
+    return {
+      ...state,
+      loadingTrophies: true,
+    };
+  }),
+
+  on(FootballActions.loadTrophiesByHumanSuccess, (state, { trophies }) => {
+    return {
+      ...state,
+      trophies,
+      loadingTrophies: false,
+    };
+  }),
+
+  on(FootballActions.loadTrophiesByHumanFailure, (state, { error }) => {
+    return {
+      ...state,
+      loadingTrophies: false,
+      trophies: null,
+      error,
+    };
+  }),
+
+  on(FootballActions.loadPlayerTransfersHistory, (state) => {
+    return {
+      ...state,
+      loadingTransfers: true,
+    };
+  }),
+
+  on(
+    FootballActions.loadPlayerTransfersHistorySuccess,
+    (state, { transfers }) => {
+      return {
+        ...state,
+        transfers,
+        loadingTransfers: false,
+      };
+    },
+  ),
+
+  on(FootballActions.loadPlayerTransfersHistoryFailure, (state, { error }) => {
+    return {
+      ...state,
+      transfers: null,
+      loadingTransfers: false,
+      error,
+    };
+  }),
 );

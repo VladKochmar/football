@@ -3,6 +3,8 @@ import {
   mockLeagues,
   mockStandings,
   mockTopScorers,
+  mockTransfers,
+  mockTrophies,
 } from '../../data/mock-data';
 import {
   selectLeagueFixtures,
@@ -10,6 +12,8 @@ import {
   selectLeagueStandings,
   selectTopAssists,
   selectTopScorers,
+  selectTransfers,
+  selectTrophies,
 } from './selectors';
 import { FootballState } from './state';
 
@@ -25,6 +29,12 @@ describe('Selectors', () => {
     leagueFixtures: [mockFixture],
     loadingFixtures: true,
     currentLeague: null,
+    currentPlayer: mockTopScorers[0],
+    loadingPlayer: false,
+    trophies: mockTrophies,
+    loadingTrophies: false,
+    transfers: mockTransfers,
+    loadingTransfers: false,
     error: null,
   };
 
@@ -53,6 +63,18 @@ describe('Selectors', () => {
   it('should select leagueFixtures from the state', () => {
     expect(selectLeagueFixtures.projector(initialState)).toEqual(
       initialState.leagueFixtures,
+    );
+  });
+
+  it('should select trophies from the state', () => {
+    expect(selectTrophies.projector(initialState)).toEqual(
+      initialState.trophies,
+    );
+  });
+
+  it('should select transfers from the state', () => {
+    expect(selectTransfers.projector(initialState)).toEqual(
+      initialState.transfers,
     );
   });
 });

@@ -91,3 +91,42 @@ export const selectLoadingFixtures = createSelector(
     return state.loadingFixtures;
   },
 );
+
+// Players
+export const selectCurrentPlayer = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.currentPlayer;
+  },
+);
+
+export const selectLoadingPlayer = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.loadingPlayer;
+  },
+);
+
+export const selectTrophies = createSelector(selectFootballState, (state) => {
+  return state.trophies
+    ? state.trophies.filter((trophy) => trophy.place === 'Winner')
+    : null;
+});
+
+export const selectLoadingTrophies = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.loadingTrophies;
+  },
+);
+
+export const selectTransfers = createSelector(selectFootballState, (state) => {
+  return state.transfers;
+});
+
+export const selectLoadingTransfers = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.loadingTransfers;
+  },
+);

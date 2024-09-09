@@ -3,6 +3,8 @@ import { League } from '../models/league.model';
 import { TopContributor } from '../models/top-contributor.model';
 import { LeagueStandings } from '../models/league-standings.model';
 import { Fixtures } from '../models/fixtures.model';
+import { Trophy } from '../models/trophy.model';
+import { TransferInfo } from '../models/transfer.model';
 
 // Leagues
 export const loadLeagues = createAction('[Leagues] Load Leagues');
@@ -92,5 +94,51 @@ export const laodLeagueFixturesSuccess = createAction(
 
 export const loadLeagueFixturesFailure = createAction(
   '[Fixtures] Load League Fixtures Failure',
+  props<{ error: any }>(),
+);
+
+// Player
+export const loadPlayerById = createAction(
+  '[Player] Load Player By Id',
+  props<{ playerId: string | number }>(),
+);
+
+export const loadPlayerByIdSuccess = createAction(
+  '[Player] Load Player By Id Success',
+  props<{ currentPlayer: TopContributor | null }>(),
+);
+
+export const loadPlayerByIdFailure = createAction(
+  '[Player] Load Player By Id Failure',
+  props<{ error: any }>(),
+);
+
+export const loadTrophiesByHuman = createAction(
+  '[Trophies] Load Trophies By Id',
+  props<{ id: string | number; humanType: 'player' | 'coach' }>(),
+);
+
+export const loadTrophiesByHumanSuccess = createAction(
+  '[Trophies] Load Trophies By Id Success',
+  props<{ trophies: Trophy[] | null }>(),
+);
+
+export const loadTrophiesByHumanFailure = createAction(
+  '[Trophies] Load Trophies By Id Failure',
+  props<{ error: any }>(),
+);
+
+export const loadPlayerTransfersHistory = createAction(
+  '[Player Transfers] Load Player Transfers History',
+  props<{ id: string | number }>(),
+);
+
+export const loadPlayerTransfersHistorySuccess = createAction(
+  '[Player Transfers] Load Player Transfers History Success',
+  props<{ transfers: TransferInfo[] | null }>(),
+);
+
+export const loadPlayerTransfersHistoryFailure = createAction(
+  '[Player Transfers] Load Player Transfers History Failure',
   props<{ error: any }>(),
 );

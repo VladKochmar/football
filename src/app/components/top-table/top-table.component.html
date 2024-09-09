@@ -2,10 +2,10 @@
   <ng-container matColumnDef="player">
     <th mat-header-cell *matHeaderCellDef> player </th>
     <td mat-cell *matCellDef="let element">
-      <div class="statistics-table__player">
+      <a [routerLink]="['/player', element.player.id]" class="statistics-table__player">
         <img [src]="element.player.photo" [alt]="element.player.name" class="statistics-table__photo">
         <span class="statistics-table__name">{{element.player.name}}</span>
-      </div>
+      </a>
     </td>
   </ng-container>
 

@@ -1,0 +1,36 @@
+<div class="page">
+  <div class="page__container">
+    <div class="player-profile">
+      @if(selectPlayerLoading$ | async) {
+      <div class="skeleton-text"></div>
+      <div class="skeleton-text"></div>
+      }
+      @if (player) {
+      <app-player-info [player]="player.player"></app-player-info>
+      <app-player-club-card [team]="player.statistics[0].team" [league]="player.statistics[0].league"></app-player-club-card>
+      }
+    </div>
+    <h2>Trophies</h2>
+    <div class="page__trophies">
+      @if(selectTrophiesLoading$ | async) {
+      <app-skeleton-table></app-skeleton-table>
+      }
+      @if (trophies) {
+      <app-trophies [trophies]="trophies"></app-trophies>
+      }
+    </div>
+    <h2>Transfers History</h2>
+    <div class="transfers-list">
+      @if(selectTransfersLoading$ | async) {
+      @for (item of skeletonTransfersCount; track $index) {
+      <app-skeleton-transfer></app-skeleton-transfer>
+      }
+      }
+      @if(transfers) {
+      @for (transfer of transfers[0].transfers; track transfer.date) {
+      <app-transfer-card [transfer]="transfer"></app-transfer-card>
+      }
+      }
+    </div>
+  </div>
+</div>

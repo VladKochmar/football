@@ -3,13 +3,20 @@ import {
   mockLeagues,
   mockStandings,
   mockTopScorers,
+  mockTransfers,
+  mockTrophies,
 } from '../../data/mock-data';
 import {
   laodLeagueFixtures,
   laodLeagueFixturesSuccess,
   loadLeagueByIdSuccess,
+  loadLeagueFixturesFailure,
   loadLeaguesFailure,
   loadLeaguesSuccess,
+  loadPlayerByIdFailure,
+  loadPlayerByIdSuccess,
+  loadPlayerTransfersHistoryFailure,
+  loadPlayerTransfersHistorySuccess,
   loadStandings,
   loadStandingsFailure,
   loadStandingsSuccess,
@@ -19,6 +26,8 @@ import {
   loadTopScorers,
   loadTopScorersFailure,
   loadTopScorersSuccess,
+  loadTrophiesByHumanFailure,
+  loadTrophiesByHumanSuccess,
 } from './actions';
 import { FootballReducer } from './reducers';
 import { initialState } from './state';
@@ -260,5 +269,111 @@ describe('FootballReducer', () => {
       loadingFixtures: false,
       error,
     };
+
+    const state = FootballReducer(
+      initialState,
+      loadLeagueFixturesFailure({ error }),
+    );
+
+    expect(state).toEqual(expectedState);
+  });
+
+  it('should handle loadPlayerByIdSuccess', () => {
+    const player = mockTopScorers[0];
+
+    const expectedState = {
+      ...initialState,
+      loadingPlayer: false,
+      currentPlayer: player,
+    };
+
+    const state = FootballReducer(
+      initialState,
+      loadPlayerByIdSuccess({ currentPlayer: player }),
+    );
+    expect(state).toEqual(expectedState);
+  });
+
+  it('should handle loadPlayerByIdFailure', () => {
+    const error = 'Some Error';
+
+    const expectedState = {
+      ...initialState,
+      loadingPlayer: false,
+      currentPlayer: null,
+      error,
+    };
+
+    const state = FootballReducer(
+      initialState,
+      loadPlayerByIdFailure({ error }),
+    );
+    expect(state).toEqual(expectedState);
+  });
+
+  it('should handle loadTrophiesByHumanSuccess', () => {
+    const trophies = mockTrophies;
+
+    const expectedState = {
+      ...initialState,
+      trophies,
+      loadingTrophies: false,
+    };
+
+    const state = FootballReducer(
+      initialState,
+      loadTrophiesByHumanSuccess({ trophies }),
+    );
+    expect(state).toEqual(expectedState);
+  });
+
+  it('should handle loadTrophiesByHumanFailure', () => {
+    const error = 'Some Error';
+
+    const expectedState = {
+      ...initialState,
+      trophies: null,
+      loadingTrophies: false,
+      error,
+    };
+
+    const state = FootballReducer(
+      initialState,
+      loadTrophiesByHumanFailure({ error }),
+    );
+    expect(state).toEqual(expectedState);
+  });
+
+  it('should handle loadPlayerTransfersHistorySuccess', () => {
+    const transfers = mockTransfers;
+
+    const expectedState = {
+      ...initialState,
+      transfers,
+      loadingTransfers: false,
+    };
+
+    const state = FootballReducer(
+      initialState,
+      loadPlayerTransfersHistorySuccess({ transfers }),
+    );
+    expect(state).toEqual(expectedState);
+  });
+
+  it('should handle loadPlayerTransfersHistoryFailure', () => {
+    const error = 'Some Error';
+
+    const expectedState = {
+      ...initialState,
+      transfers: null,
+      loadingTransfers: false,
+      error,
+    };
+
+    const state = FootballReducer(
+      initialState,
+      loadPlayerTransfersHistoryFailure({ error }),
+    );
+    expect(state).toEqual(expectedState);
   });
 });

@@ -1,0 +1,45 @@
+@import "../../../assets/styles/variables";
+
+.club-card {
+  display: flex;
+  gap: 0 1.5rem;
+  padding: 0.625rem 0.9375rem 0.625rem 0.625rem;
+  // .club-card__logo
+  &__logo {
+  }
+  // .club-card__club-img
+  &__club-img {
+    max-width: 4rem;
+  }
+  // .club-card__info
+  &__info {
+    display: grid;
+    align-content: start;
+    gap: 0.5rem;
+  }
+  // .club-card__name
+  &__name {
+    color: $blue;
+    font-weight: 700;
+  }
+  // .club-card__league
+  &__league {
+    display: inline-flex;
+    gap: 0 0.5rem;
+    color: $blue;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  // .club-card__league-logo
+  &__league-logo {
+    max-width: 1rem;
+    max-height: 1rem;
+  }
+  // .club-card__season
+  &__season {
+    font-size: 0.75rem;
+    span {
+      font-weight: 700;
+    }
+  }
+}

@@ -27,7 +27,7 @@ interface PlayerStatistics {
   penalty: Penalty;
 }
 
-interface StatisticsLeague {
+export interface StatisticsLeague {
   id: number | string;
   name: string;
   country: string;

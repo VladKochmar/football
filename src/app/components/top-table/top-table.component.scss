@@ -1,7 +1,7 @@
 .statistics-table {
   // .statistics-table__player
   &__player {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0 1.25rem;
   }

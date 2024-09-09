@@ -1,0 +1,19 @@
+<div class="player-info">
+  <div class="player-info__photo">
+    <img [src]="player.photo" class="player-info__img">
+  </div>
+  <div class="player-info__content">
+    <h1 class="player-info__name">{{ player.firstname }} <strong>{{ player.lastname }}</strong></h1>
+    <div class="player-info__details">
+      <ul class="player-info__list">
+        <li class="player-info__item">Date of birth/Age: <span>{{ player.birth.date | date: 'dd.MM.yyyy' }}</span> (<span>{{ player.age }}</span>)</li>
+        <li class="player-info__item">Place of birth: <span>{{ player.birth.place }}</span>, <span>{{ player.birth.country }}</span></li>
+        <li class="player-info__item">Citizenship: <span>{{ player.nationality }}</span></li>
+      </ul>
+      <ul class="player-info__list">
+        <li class="player-info__item">Height: <span>{{ player.height }}</span></li>
+        <li class="player-info__item">Weight: <span>{{ player.weight }}</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
