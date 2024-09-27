@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-player-club-card',
   standalone: true,
-  imports: [RouterLink, MatCardModule],
+  imports: [RouterLink, MatCardModule, RouterLink],
   templateUrl: './player-club-card.component.html',
   styleUrl: './player-club-card.component.scss',
 })

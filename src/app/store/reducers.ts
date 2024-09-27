@@ -210,4 +210,71 @@ export const FootballReducer = createReducer(
       error,
     };
   }),
+
+  // Team
+  on(FootballActions.loadTeamInfoByIdSuccess, (state, { team }) => {
+    return {
+      ...state,
+      team,
+    };
+  }),
+
+  on(FootballActions.loadTeamInfoByIdFailure, (state, { error }) => {
+    return {
+      ...state,
+      error,
+      team: null,
+    };
+  }),
+
+  on(FootballActions.loadSquadByTeamId, (state) => {
+    return {
+      ...state,
+      loadingSquad: true,
+    };
+  }),
+
+  on(FootballActions.loadSquadByTeamIdSuccess, (state, { teamSquad }) => {
+    return {
+      ...state,
+      teamSquad,
+      loadingSquad: false,
+    };
+  }),
+
+  on(FootballActions.loadSquadByTeamIdFailure, (state, { error }) => {
+    return {
+      ...state,
+      error,
+      teamSquad: null,
+      loadingSquad: false,
+    };
+  }),
+
+  on(FootballActions.loadTeamTransfersById, (state) => {
+    return {
+      ...state,
+      loadingTeamTransfers: true,
+    };
+  }),
+
+  on(
+    FootballActions.loadTeamTransfersByIdSuccess,
+    (state, { teamTransfers }) => {
+      return {
+        ...state,
+        teamTransfers,
+        loadingTeamTransfers: false,
+      };
+    },
+  ),
+
+  on(FootballActions.loadTeamTransfersByIdFailure, (state, { error }) => {
+    return {
+      ...state,
+      error,
+      teamTransfers: null,
+      loadingTeamTransfers: false,
+    };
+  }),
 );

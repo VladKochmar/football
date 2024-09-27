@@ -1,16 +1,16 @@
 <mat-card appearance="raised">
   <div class="fixture-card">
     <div class="fixture-card__clubs">
-      <div class="fixture-card__club" [ngClass]="{'loser': !fixture.teams.home.winner}">
+      <a [routerLink]="['/team', fixture.teams.home.id]" class="fixture-card__club" [ngClass]="{'loser': !fixture.teams.home.winner}">
         <img [src]="fixture.teams.home.logo" [alt]="fixture.teams.home.name" class="fixture-card__logo">
         <span class="fixture-card__name">{{ fixture.teams.home.name }}</span>
         <span class="fixture-card__goals">{{ fixture.goals.home }}</span>
-      </div>
-      <div class="fixture-card__club" [ngClass]="{'loser': !fixture.teams.away.winner}">
+      </a>
+      <a [routerLink]="['/team', fixture.teams.away.id]" class="fixture-card__club" [ngClass]="{'loser': !fixture.teams.away.winner}">
         <img [src]="fixture.teams.away.logo" [alt]="fixture.teams.away.name" class="fixture-card__logo">
         <span class="fixture-card__name">{{ fixture.teams.away.name }}</span>
         <span class="fixture-card__goals">{{ fixture.goals.away }}</span>
-      </div>
+      </a>
     </div>
     <div class="fixture-card__info">
       @if (fixture.fixture.status.long) {

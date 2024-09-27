@@ -1,0 +1,20 @@
+<div class="info-card">
+  <div class="info-card__photo">
+    <img [src]="teamData.team.logo" [alt]="teamData.team.name" class="info-card__img">
+  </div>
+  <div class="info-card__content">
+    <h1 class="info-card__name">{{ teamData.team.name }}</h1>
+    <div class="info-card__details">
+      <ul class="info-card__list">
+        <li class="info-card__item">Founded: <span>{{ teamData.team.founded }}</span></li>
+        <li class="info-card__item">Country: <span>{{ teamData.team.country }}</span></li>
+      </ul>
+      <ul class="info-card__list">
+        <li class="info-card__item">Stadium: <span>{{ teamData.venue.name }}</span></li>
+        <li class="info-card__item">Address: <span>{{ teamData.venue.address }}, {{ teamData.venue.city }}</span></li>
+        <li class="info-card__item">Capacity: <span>{{ teamData.venue.capacity }}</span></li>
+        <li class="info-card__item">Surface: <span>{{ teamData.venue.surface }}</span></li>
+      </ul>
+    </div>
+  </div>
+</div>

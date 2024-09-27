@@ -5,6 +5,8 @@ import { LeagueStandings } from '../models/league-standings.model';
 import { Fixtures } from '../models/fixtures.model';
 import { Trophy } from '../models/trophy.model';
 import { TransferInfo } from '../models/transfer.model';
+import { TeamData } from '../models/team.model';
+import { Squad } from '../models/squad.model';
 
 // Leagues
 export const loadLeagues = createAction('[Leagues] Load Leagues');
@@ -140,5 +142,51 @@ export const loadPlayerTransfersHistorySuccess = createAction(
 
 export const loadPlayerTransfersHistoryFailure = createAction(
   '[Player Transfers] Load Player Transfers History Failure',
+  props<{ error: any }>(),
+);
+
+// Team
+export const loadTeamInfoById = createAction(
+  '[Team] Load Team Info By Id',
+  props<{ teamId: string | number }>(),
+);
+
+export const loadTeamInfoByIdSuccess = createAction(
+  '[Team] Load Team By Id Success',
+  props<{ team: TeamData | null }>(),
+);
+
+export const loadTeamInfoByIdFailure = createAction(
+  '[Team] Load Team By Id Failure',
+  props<{ error: any }>(),
+);
+
+export const loadSquadByTeamId = createAction(
+  '[Team Squad] Load Squad By Team',
+  props<{ teamId: string | number }>(),
+);
+
+export const loadSquadByTeamIdSuccess = createAction(
+  '[Team Squad] Load Squad By Team Success',
+  props<{ teamSquad: Squad[] | null }>(),
+);
+
+export const loadSquadByTeamIdFailure = createAction(
+  '[Team Squad] Load Squad By Team Failure',
+  props<{ error: any }>(),
+);
+
+export const loadTeamTransfersById = createAction(
+  '[Team Transfers] Load Team Transfers',
+  props<{ teamId: string | number }>(),
+);
+
+export const loadTeamTransfersByIdSuccess = createAction(
+  '[Team Transfers] Load Team Transfers Success',
+  props<{ teamTransfers: TransferInfo[] | null }>(),
+);
+
+export const loadTeamTransfersByIdFailure = createAction(
+  '[Team Transfers] Load Team Transfers Failure',
   props<{ error: any }>(),
 );

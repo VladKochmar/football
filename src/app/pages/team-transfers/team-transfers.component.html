@@ -1,0 +1,20 @@
+<div class="transfers-tables">
+  <div class="transfers-tables__item">
+    <div class="table-title">Top arrivals</div>
+    @if (selectedLoadingTransfers$ | async) {
+    <app-skeleton-table></app-skeleton-table>
+    }
+    @if (transfersIn) {
+    <app-team-transfers-table destination="in" [transfers]="transfersIn"></app-team-transfers-table>
+    }
+  </div>
+  <div class="transfers-tables__item">
+    <div class="table-title">Top departures</div>
+    @if (selectedLoadingTransfers$ | async) {
+    <app-skeleton-table></app-skeleton-table>
+    }
+    @if (transfersOut) {
+    <app-team-transfers-table destination="out" [transfers]="transfersOut"></app-team-transfers-table>
+    }
+  </div>
+</div>

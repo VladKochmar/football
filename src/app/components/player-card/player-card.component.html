@@ -1,0 +1,6 @@
+<a [routerLink]="['/player', player.id]" class="player-card">
+  <img [src]="player.photo" [alt]="player.name" class="player-card__photo">
+  <h3 class="player-card__name">{{ player.name }}</h3>
+  <p class="player-card__text">Number: {{ player.number }}</p>
+  <p class="player-card__text">{{ player.position }}</p>
+</a>

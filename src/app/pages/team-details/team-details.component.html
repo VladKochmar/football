@@ -1,0 +1,14 @@
+<div class="page">
+  <div class="page__container">
+    @if (team) {
+    <app-team-info [teamData]="team"></app-team-info>
+    }
+    <nav class="sub-navigation">
+      <ul class="sub-navigation__list">
+        <li class="sub-navigation__item"><a [routerLink]="['squad']" class="sub-navigation__link">Squad</a></li>
+        <li class="sub-navigation__item"><a [routerLink]="['transfers']" class="sub-navigation__link">Transfers</a></li>
+      </ul>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+</div>

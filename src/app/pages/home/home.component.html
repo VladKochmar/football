@@ -7,7 +7,7 @@
   <div class="page__container">
     <div class="top-tables">
       <div class="top-tables__item">
-        <div class="top-tables__title">Most Goals</div>
+        <div class="table-title">Most Goals</div>
         @if (selectedLoadingScorers$ | async) {
         <app-skeleton-table></app-skeleton-table>
         }
@@ -16,7 +16,7 @@
         }
       </div>
       <div class="top-tables__item">
-        <div class="top-tables__title">Most Assists</div>
+        <div class="table-title">Most Assists</div>
         @if (selectedLoadingAssists$ | async) {
         <app-skeleton-table></app-skeleton-table>
         }

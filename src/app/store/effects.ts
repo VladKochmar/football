@@ -179,4 +179,59 @@ export class FootballEffects {
       }),
     ),
   );
+
+  // Team
+  loadTeamInfoById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.loadTeamInfoById),
+      switchMap(({ teamId }) => {
+        return this.footballService.loadTeamInfoById(teamId).pipe(
+          map((team) => {
+            return FootballActions.loadTeamInfoByIdSuccess({
+              team: team.response[0],
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadTeamInfoByIdFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
+
+  loadSquadByTeamId$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.loadSquadByTeamId),
+      switchMap(({ teamId }) => {
+        return this.footballService.loadSquadByTeamId(teamId).pipe(
+          map((teamSquad) => {
+            return FootballActions.loadSquadByTeamIdSuccess({
+              teamSquad: teamSquad.response,
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadSquadByTeamIdFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
+
+  loadTeamTransfersById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FootballActions.loadTeamTransfersById),
+      switchMap(({ teamId }) => {
+        return this.footballService.loadTeamTransfersById(teamId).pipe(
+          map((teamTransfers) => {
+            return FootballActions.loadTeamTransfersByIdSuccess({
+              teamTransfers: teamTransfers.response,
+            });
+          }),
+          catchError((error) =>
+            of(FootballActions.loadTeamTransfersByIdFailure({ error })),
+          ),
+        );
+      }),
+    ),
+  );
 }

@@ -5,6 +5,9 @@ import { standingsResolver } from './resolvers/standings.resolver';
 import { currentLeagueResolver } from './resolvers/current-league.resolver';
 import { leagueFixturesResolver } from './resolvers/league-fixtures.resolver';
 import { playerDetailsResolver } from './resolvers/player-details.resolver';
+import { teamDetailsResolver } from './resolvers/team-details.resolver';
+import { squadResolver } from './resolvers/squad.resolver';
+import { transfersResolver } from './resolvers/transfers.resolver';
 
 export const routes: Routes = [
   {
@@ -55,5 +58,31 @@ export const routes: Routes = [
         (m) => m.PlayerDetailsComponent,
       ),
     resolve: { player: playerDetailsResolver },
+  },
+  {
+    path: 'team/:teamId',
+    loadComponent: () =>
+      import('./pages/team-details/team-details.component').then(
+        (m) => m.TeamDetailsComponent,
+      ),
+    resolve: { team: teamDetailsResolver },
+    children: [
+      {
+        path: 'squad',
+        loadComponent: () =>
+          import('./pages/team-squad/team-squad.component').then(
+            (m) => m.TeamSquadComponent,
+          ),
+        resolve: { squad: squadResolver },
+      },
+      {
+        path: 'transfers',
+        loadComponent: () =>
+          import('./pages/team-transfers/team-transfers.component').then(
+            (m) => m.TeamTransfersComponent,
+          ),
+        resolve: { transfers: transfersResolver },
+      },
+    ],
   },
 ];

@@ -1,6 +1,6 @@
 <mat-card appearance="outlined" class="club-mat-card">
   <div class="club-card">
-    <a class="club-card__logo">
+    <a [routerLink]="['/team', team.id]" class="club-card__logo">
       <img [src]="team.logo" [alt]="team.name" class="club-card__club-img">
     </a>
     <div class="club-card__info">

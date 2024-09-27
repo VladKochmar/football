@@ -3,3 +3,10 @@ export interface Venue {
   name: string;
   city: string;
 }
+
+export interface VenueInfo extends Venue {
+  address: string;
+  capacity: number;
+  surface: string;
+  image: string;
+}

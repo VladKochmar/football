@@ -1,0 +1,39 @@
+.filter-input {
+  width: 100%;
+}
+
+.table-wrapper {
+  height: 25rem;
+  overflow: auto;
+  @media (width < 509.98px) {
+    max-width: 100%;
+  }
+}
+
+.team-transfers-table {
+  @media (width < 509.98px) {
+    width: 31.25rem;
+  }
+  // .team-transfers-table__name
+  &__name {
+    font-weight: 700;
+  }
+  // .team-transfers-table__wrapper
+  &__wrapper {
+    padding: 0.5rem 0;
+  }
+  // .team-transfers-table__img
+  &__img {
+    display: inline-block;
+    img {
+      max-width: 4rem;
+      max-height: 4rem;
+    }
+  }
+  // .team-transfers-table__fee
+  &__fee {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,19 @@
+.player-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem 0;
+  max-width: 6.25rem;
+  // .player-card__photo
+  &__photo {
+    max-width: 6.25rem;
+    border-radius: 0.75rem;
+  }
+  // .player-card__name
+  &__name {
+    font-size: 0.875rem;
+  }
+  // .player-card__text
+  &__text {
+    font-size: 0.75rem;
+  }
+}

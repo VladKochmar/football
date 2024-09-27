@@ -130,3 +130,51 @@ export const selectLoadingTransfers = createSelector(
     return state.loadingTransfers;
   },
 );
+
+// Team
+export const selectTeam = createSelector(selectFootballState, (state) => {
+  return state.team;
+});
+
+export const selectTeamSquad = createSelector(selectFootballState, (state) => {
+  return state.teamSquad;
+});
+
+export const selectLoadingSquad = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.loadingSquad;
+  },
+);
+
+export const selectTeamTransfers = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.teamTransfers;
+  },
+);
+
+export const selectLoadingTeamTransfers = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.loadingTeamTransfers;
+  },
+);
+
+export const selectTransfersIn = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.teamTransfers?.filter(
+      (item) => item.transfers[0].teams.in.name === state.team?.team.name,
+    );
+  },
+);
+
+export const selectTransfersOut = createSelector(
+  selectFootballState,
+  (state) => {
+    return state.teamTransfers?.filter(
+      (item) => item.transfers[0].teams.out.name === state.team?.team.name,
+    );
+  },
+);

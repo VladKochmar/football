@@ -1,0 +1,11 @@
+.transfers-tables {
+  text-align: center;
+  // .transfers-tables__item
+  &__item {
+    @media (width > 997.98px) {
+      display: inline-block;
+      margin: 0 0.5rem;
+    }
+    padding: 1.5rem 0;
+  }
+}
